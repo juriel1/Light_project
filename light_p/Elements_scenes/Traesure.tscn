@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxsu1qebk0ly"]
+
+[ext_resource type="Script" path="res://Scripts/Traesure.gd" id="1_ovj7g"]
+[ext_resource type="Material" uid="uid://b2gchho751ifv" path="res://SHADERS/Treasure.tres" id="2_6r25b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shrl3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4b5jl"]
+
+[node name="Traesure" type="Area3D"]
+script = ExtResource("1_ovj7g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_shrl3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_overlay = ExtResource("2_6r25b")
+mesh = SubResource("SphereMesh_4b5jl")

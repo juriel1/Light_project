@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dve02uxg7ocfv"]
+
+[ext_resource type="Material" uid="uid://hs4osw1wbuxf" path="res://SHADERS/Filter_palette_3D.tres" id="1_73omr"]
+[ext_resource type="Script" path="res://Scripts/Ligth_shaderController.gd" id="1_w4djv"]
+[ext_resource type="Script" path="res://Scripts/Trigger_to_rgbController.gd" id="3_p83j1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a5rt5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x7tju"]
+
+[node name="Ligth" type="Area3D"]
+transform = Transform3D(9.55343e-16, -2.18557e-08, -0.5, -0.494094, 0.0766222, -3.34927e-09, 0.0766222, 0.494094, -2.15975e-08, 0, 1.63602, 0)
+script = ExtResource("1_w4djv")
+
+[node name="Mesh_ligth" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 5.96046e-08, -1.77636e-15, -5.96046e-08, 3, -2.84217e-14, 1.77636e-15, 2.84217e-14, 3, 0, 7.132, 0)
+material_override = ExtResource("1_73omr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(500, -1.19209e-05, -7.10543e-13, 1.19209e-05, 500, -9.9476e-12, 7.10543e-13, 9.9476e-12, 500, -0.553, -3.5, 0)
+shape = SubResource("SphereShape3D_a5rt5")
+script = ExtResource("3_p83j1")
+
+[node name="Mesh_lug" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.765, 0, 0, 0, 0.574, 0, 0, 0, 0.765, 0, -4.34443, 0)
+mesh = SubResource("CylinderMesh_x7tju")

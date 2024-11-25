@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drdn10ov5toxp"
+path="res://.godot/imported/cone_ligth.obj-84a803b220233d43215bcba80b9e9b6c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cone_ligth.obj-84a803b220233d43215bcba80b9e9b6c.mesh"]
+
+source_file="res://Models/Utils/cone_ligth.obj"
+dest_files=["res://.godot/imported/cone_ligth.obj-84a803b220233d43215bcba80b9e9b6c.mesh", "res://.godot/imported/cone_ligth.obj-84a803b220233d43215bcba80b9e9b6c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

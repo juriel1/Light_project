@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6mty3266lq5w"]
+
+[ext_resource type="PackedScene" uid="uid://dy7cwo7hjny32" path="res://Elements_scenes/SCENE/stair.tscn" id="1_j312i"]
+
+[node name="Stair_multi" type="Node3D"]
+
+[node name="Stair3" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 4.296, 0, -12.464)
+
+[node name="Stair4" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.595, 0, -12.464)
+
+[node name="Stair5" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.951, 0, -12.464)
+
+[node name="Stair6" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.75, 0, -12.464)
+
+[node name="Stair7" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.438, 0, -12.464)
+
+[node name="Stair8" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -4.139, 0, -12.464)
+
+[node name="Stair9" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -5.784, 0, -12.464)
+
+[node name="Stair10" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -7.485, 0, -12.464)
+
+[node name="Stair11" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -9.138, 0, -12.464)
+
+[node name="Stair12" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -10.839, 0, -12.464)
+
+[node name="Stair13" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -12.484, 0, -12.464)
+
+[node name="Stair14" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -14.185, 0, -12.464)
+
+[node name="Stair15" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -15.873, 0, -12.464)
+
+[node name="Stair16" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -17.574, 0, -12.464)
+
+[node name="Stair17" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.218, 0, -12.464)
+
+[node name="Stair18" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.919, 0, -12.464)
+
+[node name="Stair19" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -22.55, 0, -12.464)
+
+[node name="Stair20" parent="." instance=ExtResource("1_j312i")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -24.251, 0, -12.464)

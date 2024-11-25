@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://4ql7o8q805tp"
+path="res://.godot/imported/close_closed.obj-f1e1c9b4777479f4f0e4fc71327647ae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/close_closed.obj-f1e1c9b4777479f4f0e4fc71327647ae.mesh"]
+
+source_file="res://Models/Scene/close_closed.obj"
+dest_files=["res://.godot/imported/close_closed.obj-f1e1c9b4777479f4f0e4fc71327647ae.mesh", "res://.godot/imported/close_closed.obj-f1e1c9b4777479f4f0e4fc71327647ae.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

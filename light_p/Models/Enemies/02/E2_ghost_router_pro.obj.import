@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhjav1a7cn40j"
+path="res://.godot/imported/E2_ghost_router_pro.obj-857ece4bea0bc161d846e904a3703d6a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/E2_ghost_router_pro.obj-857ece4bea0bc161d846e904a3703d6a.mesh"]
+
+source_file="res://Models/Enemies/02/E2_ghost_router_pro.obj"
+dest_files=["res://.godot/imported/E2_ghost_router_pro.obj-857ece4bea0bc161d846e904a3703d6a.mesh", "res://.godot/imported/E2_ghost_router_pro.obj-857ece4bea0bc161d846e904a3703d6a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

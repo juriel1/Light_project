@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bsf8j4de2rb8s"
+path="res://.godot/imported/game_boy.obj-d122eec4004f11029498dbf33af2f94b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/game_boy.obj-d122eec4004f11029498dbf33af2f94b.mesh"]
+
+source_file="res://Models/Scene/game_boy.obj"
+dest_files=["res://.godot/imported/game_boy.obj-d122eec4004f11029498dbf33af2f94b.mesh", "res://.godot/imported/game_boy.obj-d122eec4004f11029498dbf33af2f94b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

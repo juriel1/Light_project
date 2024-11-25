@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi2jegs8qd3mv"]
+
+[ext_resource type="Script" path="res://Scripts/Enemi_2_ghostController.gd" id="1_c30w7"]
+[ext_resource type="ArrayMesh" uid="uid://bhjav1a7cn40j" path="res://Models/Enemies/02/E2_ghost_router_pro.obj" id="2_6a3hg"]
+[ext_resource type="Script" path="res://Scripts/rgb_INFO.gd" id="3_fsjhi"]
+[ext_resource type="PackedScene" uid="uid://b3gtjrc8683bt" path="res://Elements_scenes/DEAD_ZONE.tscn" id="4_w6kvl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ov2tt"]
+size = Vector3(1.08301, 1.07275, 1.12231)
+
+[node name="Enemi2_Ghost" type="CharacterBody3D"]
+script = ExtResource("1_c30w7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("2_6a3hg")
+
+[node name="collision_RGB" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -0.0726318, -0.00640869, -0.00704956)
+shape = SubResource("BoxShape3D_ov2tt")
+script = ExtResource("3_fsjhi")
+
+[node name="DEAD_ZONE" parent="." node_paths=PackedStringArray("collision_shape") instance=ExtResource("4_w6kvl")]
+collision_shape = NodePath("../collision_RGB")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhfl158pl7swm"]
+
+[ext_resource type="ArrayMesh" uid="uid://4ql7o8q805tp" path="res://Models/Scene/close_closed.obj" id="1_mepkp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6gb62"]
+size = Vector3(4.2824, 5.99012, 6.10229)
+
+[node name="close_closed" type="StaticBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_mepkp")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0218787, -0.00273502, 0)
+shape = SubResource("BoxShape3D_6gb62")

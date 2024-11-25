@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cti8la5gwungb"]
+
+[ext_resource type="ArrayMesh" uid="uid://rlcyxst7pqco" path="res://Models/Enemies/04/E4_ghost_checker.obj" id="1_lnakd"]
+[ext_resource type="Script" path="res://Scripts/Enemi_4_ghostController.gd" id="1_t46y3"]
+[ext_resource type="Script" path="res://Scripts/rgb_INFO.gd" id="2_8tmmw"]
+[ext_resource type="PackedScene" uid="uid://b3gtjrc8683bt" path="res://Elements_scenes/DEAD_ZONE.tscn" id="4_tc266"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ov2tt"]
+size = Vector3(1.26147, 1.44852, 1.8682)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_np8qx"]
+
+[node name="Enemi4_Ghost" type="CharacterBody3D"]
+script = ExtResource("1_t46y3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, 0, 0)
+mesh = ExtResource("1_lnakd")
+
+[node name="collision_RGB" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, -0.0382385, 0.283559, -0.323664)
+shape = SubResource("BoxShape3D_ov2tt")
+script = ExtResource("2_8tmmw")
+
+[node name="Trigger" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger"]
+transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 35, 0, 0, 0)
+shape = SubResource("SphereShape3D_np8qx")
+
+[node name="DEAD_ZONE" parent="." node_paths=PackedStringArray("collision_shape") instance=ExtResource("4_tc266")]
+collision_shape = NodePath("../collision_RGB")

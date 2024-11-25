@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://h61vqj2g1mp3"
+path="res://.godot/imported/E3_ghost_finder.obj-7f383b39d897e70585b85f64be9db388.mesh"
+
+[deps]
+
+files=["res://.godot/imported/E3_ghost_finder.obj-7f383b39d897e70585b85f64be9db388.mesh"]
+
+source_file="res://Models/Enemies/03/E3_ghost_finder.obj"
+dest_files=["res://.godot/imported/E3_ghost_finder.obj-7f383b39d897e70585b85f64be9db388.mesh", "res://.godot/imported/E3_ghost_finder.obj-7f383b39d897e70585b85f64be9db388.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

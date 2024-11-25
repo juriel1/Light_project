@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://byp86y5eqxv5o"]
+
+[ext_resource type="Material" uid="uid://ck5a2oaim5t01" path="res://SHADERS/Under_dead.tres" id="1_2cl53"]
+[ext_resource type="PackedScene" uid="uid://b3gtjrc8683bt" path="res://Elements_scenes/DEAD_ZONE.tscn" id="1_5fqn2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bp42f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a02yy"]
+
+[node name="Under_dead_zone" type="MeshInstance3D"]
+material_overlay = ExtResource("1_2cl53")
+mesh = SubResource("BoxMesh_bp42f")
+
+[node name="DEAD_ZONE" parent="." instance=ExtResource("1_5fqn2")]
+type_shape = true
+shape_ = SubResource("BoxShape3D_a02yy")

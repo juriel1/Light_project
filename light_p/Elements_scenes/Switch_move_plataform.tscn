@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bub7bi6lbd51j"]
+
+[ext_resource type="Script" path="res://Scripts/Switch_move_plataform.gd" id="1_jxbeb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vc2dv"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_di81t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_llh5x"]
+
+[node name="Switch_MovePlataform" type="Area3D"]
+script = ExtResource("1_jxbeb")
+
+[node name="PhysicCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_vc2dv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicCollision"]
+mesh = SubResource("CylinderMesh_di81t")
+
+[node name="AreaCollision" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaCollision"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("SphereShape3D_llh5x")

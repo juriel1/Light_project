@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://daiuwg23tp40w"]
+
+[ext_resource type="ArrayMesh" uid="uid://l2gccnaomwsp" path="res://Models/Scene/chandelure.obj" id="1_cmgrb"]
+
+[node name="chandelure" type="MeshInstance3D"]
+mesh = ExtResource("1_cmgrb")
+skeleton = NodePath("")

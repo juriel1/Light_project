@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fjll1h6ixb2h"
+path="res://.godot/imported/big_central_table.obj-891c695a6022cfae97c38d4c0d54270c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/big_central_table.obj-891c695a6022cfae97c38d4c0d54270c.mesh"]
+
+source_file="res://Models/Scene/big_central_table.obj"
+dest_files=["res://.godot/imported/big_central_table.obj-891c695a6022cfae97c38d4c0d54270c.mesh", "res://.godot/imported/big_central_table.obj-891c695a6022cfae97c38d4c0d54270c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

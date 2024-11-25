@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3aiju6glitcp"]
+
+[ext_resource type="ArrayMesh" uid="uid://caa3ajeey3vq4" path="res://Models/Scene/mini_chair.obj" id="1_3k0bv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6gb62"]
+size = Vector3(3, 3, 3)
+
+[node name="chair" type="StaticBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_3k0bv")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00372313, -0.194199, 0.000656135)
+shape = SubResource("BoxShape3D_6gb62")

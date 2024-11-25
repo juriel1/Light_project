@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b2gchho751ifv"]
+
+[ext_resource type="Shader" path="res://SHADERS/Treasure_SHADER.gdshader" id="1_h2m8y"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_h2m8y")
+shader_parameter/custom_color = Vector4(10, 0.7, 0, 1)

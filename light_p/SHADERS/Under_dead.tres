@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ck5a2oaim5t01"]
+
+[ext_resource type="Shader" path="res://SHADERS/Under_dead_SHADER.gdshader" id="1_d0u4g"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_d0u4g")
+shader_parameter/custom_color = Vector4(0, -1, 0, 1)
+shader_parameter/dot_color = Vector4(0, -0.01, 0, 0)
+shader_parameter/speed = 1.0
+shader_parameter/min_dot_size = 0.01
+shader_parameter/max_dot_size = 0.1
+shader_parameter/grid_spacing = 0.1

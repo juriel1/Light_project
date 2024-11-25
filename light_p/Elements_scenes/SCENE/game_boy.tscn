@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6lsltqsg7pts"]
+
+[ext_resource type="ArrayMesh" uid="uid://bsf8j4de2rb8s" path="res://Models/Scene/game_boy.obj" id="1_y7d6h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6gb62"]
+size = Vector3(2.29745, 3.03603, 0.998688)
+
+[node name="game_boy" type="StaticBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_y7d6h")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0132089, 0.0659646, -0.02211)
+shape = SubResource("BoxShape3D_6gb62")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdfk07jolywa5"]
+
+[ext_resource type="Script" path="res://Scripts/Enemi_1_ghostController.gd" id="1_yb3d5"]
+[ext_resource type="Script" path="res://Scripts/rgb_INFO.gd" id="2_gncfo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cpwai"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ov2tt"]
+
+[node name="Enemi1_Ghost" type="CharacterBody3D"]
+script = ExtResource("1_yb3d5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = SubResource("BoxMesh_cpwai")
+
+[node name="collision_RGB" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ov2tt")
+script = ExtResource("2_gncfo")

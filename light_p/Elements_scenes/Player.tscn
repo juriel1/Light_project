@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl4b83odhsbn"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_e0jra"]
+[ext_resource type="PackedScene" uid="uid://dve02uxg7ocfv" path="res://Elements_scenes/Ligth.tscn" id="3_b4f83"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_asdks"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtcwt"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_e0jra")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-5.02681e-08, 0, -1.15, 0, 1.15, 0, 1.15, 0, -5.02681e-08, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_asdks")
+
+[node name="Ligth" parent="." instance=ExtResource("3_b4f83")]
+transform = Transform3D(9.55343e-16, -2.18557e-08, -0.5, -0.494094, 0.0766222, -3.34927e-09, 0.0766222, 0.494094, -2.15975e-08, 0.582032, 0.307576, 2.32539)
+
+[node name="Fisrt_person_camera_pivot" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.22, 1.374, 0.389)
+
+[node name="Third_person_camera_pivot" type="Node3D" parent="."]
+transform = Transform3D(-1, -2.99003e-08, 8.21505e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 2.472, -2.619)
+
+[node name="Fisrt_person_ligth_pivot" type="Node3D" parent="."]
+transform = Transform3D(11.5, 0, 0, 0, 11.5, 0, 0, 0, 11.5, 0.582, -0.007, 0.9)
+
+[node name="Third_person_ligth_pivot" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.582, 1.43722, 10.353)
+
+[node name="Player_trigger" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_trigger"]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_dtcwt")
