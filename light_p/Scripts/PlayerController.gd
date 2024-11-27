@@ -6,7 +6,18 @@ extends CharacterBody3D
 @export var check_point:Area3D
 
 var treasures_count:int
+@export var max_treaure_in_scene:int
+@export var enemy_rampage : Array[CharacterBody3D]
+@export var enemy_rampage_pos : Array[Vector3]
+var invoke_treasure:bool
 
+signal panel_canvas
+
+func _ready() -> void:
+	save_pos_rampage()
+
+func _process(delta: float) -> void:
+	check_treasure()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -27,9 +38,29 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func get_new_check_point(point:Area3D):
-	check_point = point
-	print("new check point ", check_point.name)
+	if check_point != point:
+		check_point = point
+		print("new check point ", check_point.name)
+		emit_signal("panel_canvas","check")
 func dead_to_check_point():
 	global_transform.origin = check_point.global_transform.origin
+	emit_signal("panel_canvas","dead")
 func up_treasure():
 	treasures_count +=1
+	print("up treaure")
+	emit_signal("panel_canvas","treasure")
+
+func check_treasure():
+	if treasures_count >= max_treaure_in_scene and !invoke_treasure: 
+		for i in range(len(enemy_rampage)):
+			enemy_rampage[i].global_transform.origin = enemy_rampage_pos[i]
+		invoke_treasure = true
+		emit_signal("panel_canvas","rampage")
+func save_pos_rampage():
+	for i in range(len(enemy_rampage)):
+			enemy_rampage_pos[i] = enemy_rampage[i].global_transform.origin
+			enemy_rampage[i].global_transform.origin = Vector3(150,150,150)
+			
+func end_game():
+	if treasures_count >= max_treaure_in_scene:
+		print("END GAME")

@@ -34,6 +34,7 @@ func _on_body_exited(body):
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action") and contact:
+		print("CONTACT PLATFORM")
 		on = !on
 
 func route() -> void:

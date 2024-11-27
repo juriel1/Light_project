@@ -1,10 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://co3psrl51tnfd"]
+[gd_scene load_steps=27 format=3 uid="uid://co3psrl51tnfd"]
 
+[ext_resource type="PackedScene" uid="uid://cxsu1qebk0ly" path="res://Elements_scenes/Traesure.tscn" id="1_1rgfu"]
 [ext_resource type="PackedScene" uid="uid://byp86y5eqxv5o" path="res://Elements_scenes/Under_dead_zone.tscn" id="1_3d3ti"]
+[ext_resource type="Script" path="res://Scripts/Canvas_controller.gd" id="1_bu76n"]
+[ext_resource type="Texture2D" uid="uid://btn7d2ot1lw7m" path="res://Sprites/dead_panel.png" id="1_h35p3"]
 [ext_resource type="Script" path="res://Scripts/Camera_Controller.gd" id="1_kxobn"]
 [ext_resource type="PackedScene" uid="uid://dl4b83odhsbn" path="res://Elements_scenes/Player.tscn" id="1_t4kpy"]
 [ext_resource type="PackedScene" uid="uid://bx1dmwla73tuo" path="res://Elements_scenes/Ground.tscn" id="2_kvfra"]
+[ext_resource type="Texture2D" uid="uid://bop7gjhb5gudf" path="res://Sprites/check_point_panel.png" id="3_32vk6"]
 [ext_resource type="ArrayMesh" uid="uid://by80qmq4rvmp0" path="res://Models/Utils/Ligth_plane.obj" id="4_1tg65"]
+[ext_resource type="Texture2D" uid="uid://beyfxeam78vmx" path="res://Sprites/treasure_panel.png" id="4_pdt2q"]
+[ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="5_wbr5s"]
 [ext_resource type="PackedScene" uid="uid://bdfk07jolywa5" path="res://Elements_scenes/wall_RGB.tscn" id="6_hga8y"]
 [ext_resource type="PackedScene" uid="uid://5vnw1dfn2gc5" path="res://Elements_scenes/Wall.tscn" id="6_rn5wg"]
 [ext_resource type="PackedScene" uid="uid://c6mty3266lq5w" path="res://Elements_scenes/SCENE/stair_multi.tscn" id="7_ripyu"]
@@ -15,10 +21,16 @@
 [ext_resource type="PackedScene" uid="uid://b2af718bsasrv" path="res://Elements_scenes/Switch_door.tscn" id="9_o6gpq"]
 [ext_resource type="PackedScene" uid="uid://bi2jegs8qd3mv" path="res://Elements_scenes/Enemi_2_ghost.tscn" id="10_ekplm"]
 [ext_resource type="PackedScene" uid="uid://3jd43eyhlv1v" path="res://Elements_scenes/Check_point.tscn" id="14_bi7qy"]
+[ext_resource type="PackedScene" uid="uid://cti8la5gwungb" path="res://Elements_scenes/Enemi_4_ghost.tscn" id="17_53k1g"]
+[ext_resource type="PackedScene" uid="uid://brwlrlgg3bkfu" path="res://Scenes/END.tscn" id="18_vvjwc"]
 
 [sub_resource type="Environment" id="Environment_fwq1j"]
-background_mode = 1
-background_color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_je574"]
+font = ExtResource("5_wbr5s")
+font_size = 150
+
+[sub_resource type="SphereMesh" id="SphereMesh_q56c2"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -27,14 +39,50 @@ environment = SubResource("Environment_fwq1j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 132.147)
-light_energy = 1.008
+light_energy = 16.0
 light_indirect_energy = 16.0
 light_volumetric_fog_energy = 16.0
 light_angular_distance = 90.0
 
-[node name="Player" parent="." instance=ExtResource("1_t4kpy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.719, 59.6746, 90.2369)
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "label", "center_sprite")]
+script = ExtResource("1_bu76n")
+player = NodePath("../Player")
+label = NodePath("Label")
+dead_panel = ExtResource("1_h35p3")
+check_panel = ExtResource("3_32vk6")
+treasure_panel = ExtResource("4_pdt2q")
+center_sprite = NodePath("Center_element")
+origin_center_pos = Vector2(575, 325)
+down_pos = Vector2(575, 1000)
+up_pos = Vector2(575, -350)
+speed_pos = 2.0
+origin_scale = Vector2(9, 9)
+max_scale = Vector2(11, 11)
+speed_scale = 2.0
+
+[node name="Center_element" type="Sprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(575, 325)
+scale = Vector2(11, 11)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 234.0
+offset_top = 221.0
+offset_right = 921.0
+offset_bottom = 401.0
+label_settings = SubResource("LabelSettings_je574")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" parent="." node_paths=PackedStringArray("check_point", "enemy_rampage") instance=ExtResource("1_t4kpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.8462, 7.81944, -20.2972)
 jump_force = 5.5
+check_point = NodePath("../CheckPoints_distri/CheckPoint_START")
+max_treaure_in_scene = 1
+enemy_rampage = [NodePath("../Enemi_arampage_distri/Enemi4_Ghost_1"), NodePath("../Enemi_arampage_distri/Enemi4_Ghost_2"), NodePath("../Enemi_arampage_distri/Enemi4_Ghost_3"), NodePath("../Enemi_arampage_distri/Enemi4_Ghost_4"), NodePath("../Enemi_arampage_distri/Enemi4_Ghost_5"), NodePath("../Enemi_arampage_distri/Enemi4_Ghost_6")]
+enemy_rampage_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)])
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.22, 1.374, 0.389)
@@ -102,8 +150,14 @@ invert_switch = true
 [node name="Ground2" parent="Scene_distri" instance=ExtResource("2_kvfra")]
 transform = Transform3D(50, 0, 0, 0, 0.1, 0, 0, 0, 75, 0, 0, 71.7689)
 
+[node name="Ground12" parent="Scene_distri" instance=ExtResource("2_kvfra")]
+transform = Transform3D(50, 0, 0, 0, 0.1, 0, 0, 0, 75, 0, 29.7317, 74.665)
+
 [node name="Ground3" parent="Scene_distri" instance=ExtResource("2_kvfra")]
 transform = Transform3D(100, 0, 0, 0, 0.109, 0, 0, 0, 50, 75.587, 50, 92.2163)
+
+[node name="Ground10" parent="Scene_distri" instance=ExtResource("2_kvfra")]
+transform = Transform3D(100, 0, 0, 0, 0.109, 0, 0, 0, 50, 74.4062, 79.5224, 92.2163)
 
 [node name="Wall_rigth2" parent="Scene_distri" instance=ExtResource("6_rn5wg")]
 transform = Transform3D(-4.80825e-06, 0.1, -2.18557e-06, 0, -4.37114e-09, -50, -110, -4.37114e-09, 9.55343e-14, 25, 45, 4.5)
@@ -114,6 +168,9 @@ RGB = 3
 
 [node name="Ground4" parent="Scene_distri" instance=ExtResource("2_kvfra")]
 transform = Transform3D(100, 0, 0, 0, 0.109, 0, 0, 0, 50, 22.829, 43.1729, -61.3842)
+
+[node name="Ground11" parent="Scene_distri" instance=ExtResource("2_kvfra")]
+transform = Transform3D(100, 0, 0, 0, 0.109, 0, 0, 0, 50, 22.829, 69.0867, -61.3842)
 
 [node name="Wall_rigth3" parent="Scene_distri" instance=ExtResource("6_rn5wg")]
 transform = Transform3D(-2.18557e-06, 0.1, -1.31134e-06, 0, -4.37114e-09, -30, -50, -4.37114e-09, 5.73206e-14, -25, 55, -62.046)
@@ -250,6 +307,31 @@ transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 24.1759, 12.8388, 104.137
 
 [node name="stairs2" parent="Scene_distri" instance=ExtResource("2_kvfra")]
 transform = Transform3D(-4.65745e-07, -0.0287361, 53.5231, 0, 0.0957823, 16.0577, -10.655, 1.25609e-09, -2.33957e-06, -7.19682, 4.72045, 104.746)
+
+[node name="stairs4" parent="Scene_distri" instance=ExtResource("6_hga8y")]
+transform = Transform3D(-10.5, -2.4097e-09, 4.62199e-06, 0, 0.0961262, 15.1601, -9.17939e-07, 0.0275637, -52.8694, -1.81673, 19.4777, -33.6828)
+RGB = 1
+invert_switch = true
+
+[node name="stairs5" parent="Scene_distri" instance=ExtResource("6_hga8y")]
+transform = Transform3D(10.5, 0, 0, 0, 0.0961262, 15.1601, 0, -0.0275637, 52.8694, -12.8632, 20.9808, -33.6828)
+RGB = 2
+invert_switch = true
+
+[node name="stairs6" parent="Scene_distri" instance=ExtResource("6_hga8y")]
+transform = Transform3D(-10.5, -2.4097e-09, 4.62199e-06, 0, 0.0961262, 15.1601, -9.17939e-07, 0.0275637, -52.8694, -2.57388, 36.4935, -33.6828)
+RGB = 3
+invert_switch = true
+
+[node name="stairs7" parent="Scene_distri" instance=ExtResource("6_hga8y")]
+transform = Transform3D(10.5, 0, 0, 0, 0.0961262, 15.1601, 0, -0.0275637, 52.8694, -12.8432, 38.4265, -33.6828)
+RGB = 1
+invert_switch = true
+
+[node name="stairs8" parent="Scene_distri" instance=ExtResource("6_hga8y")]
+transform = Transform3D(10.5, 0, 0, 0, 0.1, 0, 0, 0, 55, -2.21105, 43.06, -33.6828)
+RGB = 3
+invert_switch = true
 
 [node name="Enemies_standar_distri" type="Node" parent="."]
 
@@ -411,7 +493,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 50, 44)
 
 [node name="Enemi1_Ghost4" parent="Enemies_standar_distri" node_paths=PackedStringArray("points_rout_export") instance=ExtResource("9_8opcg")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 48.5, 50, 44)
-RGB = 3
+RGB = 1
 points_rout_export = [NodePath("../Enemi1_1_POINTS2/Enemi1_4_p1"), NodePath("../Enemi1_1_POINTS2/Enemi1_4_p2")]
 speed = 0.025
 margen_lerp = 0.5
@@ -425,7 +507,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5, 55, 44)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5, 45, 44)
 
 [node name="Enemi3_2" parent="Enemies_standar_distri" node_paths=PackedStringArray("points_rout_export") instance=ExtResource("9_0hm20")]
-transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 105.533, 55.7015, 78.5983)
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 105.533, 55, 78.598)
+i_ilumite = true
 RGB = 3
 points_rout_export = [NodePath("../Enemi3_1_POINTS2/Enemi3_2_p1"), NodePath("../Enemi3_1_POINTS2/Enemi3_2_p2")]
 speed = 0.01
@@ -440,7 +523,7 @@ transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 103, 6
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 36.5526, 60, 80)
 
 [node name="Enemi3_3" parent="Enemies_standar_distri" node_paths=PackedStringArray("points_rout_export") instance=ExtResource("9_0hm20")]
-transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 34.8688, 55.7015, 107.739)
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, 34.869, 55, 107.739)
 RGB = 1
 points_rout_export = [NodePath("../Enemi3_1_POINTS3/Enemi3_3_p2"), NodePath("../Enemi3_1_POINTS3/Enemi3_3_p1")]
 speed = 0.01
@@ -595,7 +678,7 @@ margen_lerp = 0.5
 [node name="Utiles_distri" type="Node" parent="."]
 
 [node name="Switch_Door_living_room" parent="Utiles_distri" node_paths=PackedStringArray("door", "pos_rot_1", "pos_rot_2") instance=ExtResource("9_o6gpq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3352, 12.4145, -10.7713)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3352, 12.4943, -10.7713)
 door = NodePath("../down_door_living_room")
 pos_rot_1 = NodePath("close")
 pos_rot_2 = NodePath("open")
@@ -604,29 +687,49 @@ margen_lerp = 0.01
 open = true
 
 [node name="close" type="Node3D" parent="Utiles_distri/Switch_Door_living_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 31)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -10, 40)
 
 [node name="open" type="Node3D" parent="Utiles_distri/Switch_Door_living_room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25097, -10, 40)
 
 [node name="down_door_living_room" parent="Utiles_distri" instance=ExtResource("9_g1bct")]
-transform = Transform3D(8, 0, 0, 0, 0.1, 0, 0, 0, 8, -21, 0, 23)
+transform = Transform3D(13.315, 0, 0, 0, 0.166, 0, 0, 0, 13.315, -21.3352, -0.00461006, 29.4805)
 
 [node name="Switch_Platform_hide_room" parent="Utiles_distri" node_paths=PackedStringArray("points_move", "platform") instance=ExtResource("8_fev3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -26, -20.5)
-points_move = [NodePath("p1"), NodePath("p2")]
-platform = NodePath("../platform_hide_room")
-speed = 0.01
-margen_lerp = 0.01
+points_move = [NodePath("p2"), NodePath("p3"), NodePath("p1")]
+platform = NodePath("../down_platform")
+speed = 0.005
+margen_lerp = 0.05
 
 [node name="p1" type="Node3D" parent="Utiles_distri/Switch_Platform_hide_room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.5, 3.5)
 
 [node name="p2" type="Node3D" parent="Utiles_distri/Switch_Platform_hide_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 15.659, -13.5)
+
+[node name="p3" type="Node3D" parent="Utiles_distri/Switch_Platform_hide_room"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 27.5, -13.5)
 
-[node name="platform_hide_room" parent="Utiles_distri" instance=ExtResource("9_g1bct")]
-transform = Transform3D(5, 0, 0, 0, 0.2, 0, 0, 0, 5, 49, -26.5, -17)
+[node name="down_platform" parent="Utiles_distri" instance=ExtResource("9_g1bct")]
+transform = Transform3D(13.315, 0, 0, 0, 0.166, 0, 0, 0, 13.315, 52, -26.6969, -12.7363)
+
+[node name="Switch_Door" parent="Utiles_distri" node_paths=PackedStringArray("door", "pos_rot_1", "pos_rot_2") instance=ExtResource("9_o6gpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -26, -20.5)
+door = NodePath("../MovePlatform")
+pos_rot_1 = NodePath("open_1")
+pos_rot_2 = NodePath("close_1")
+speed = 0.01
+margen_lerp = 0.01
+
+[node name="close_1" type="Node3D" parent="Utiles_distri/Switch_Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 26, -13)
+
+[node name="open_1" type="Node3D" parent="Utiles_distri/Switch_Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 26, -22)
+
+[node name="MovePlatform" parent="Utiles_distri" instance=ExtResource("9_g1bct")]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 21, 0, -33.3533)
 
 [node name="CheckPoints_distri" type="Node" parent="."]
 
@@ -651,5 +754,61 @@ transform = Transform3D(50, 0, 0, 0, 15, 0, 0, 0, 1, 49.7701, 50, -40)
 [node name="CheckPoint_END" parent="CheckPoints_distri" instance=ExtResource("14_bi7qy")]
 transform = Transform3D(1, 0, 0, 0, 25, 0, 0, 0, 15, 127.283, 61.6267, 92.3163)
 
-[node name="MeshInstance3D" parent="." instance=ExtResource("1_3d3ti")]
-transform = Transform3D(406.398, 0, 291.274, 0, 1, 0, -291.274, 0, 406.398, 28.8349, -41.4915, 10.0922)
+[node name="Treasures_distri" type="Node" parent="."]
+
+[node name="Traesure_1" parent="Treasures_distri" instance=ExtResource("1_1rgfu")]
+transform = Transform3D(0.599275, -0.800543, 0, 0.800543, 0.599275, 0, 0, 0, 1, 0, 2, -10)
+
+[node name="Traesure_2" parent="Treasures_distri" instance=ExtResource("1_1rgfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 14, 104)
+
+[node name="Traesure_3" parent="Treasures_distri" instance=ExtResource("1_1rgfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.6369, -25.4098, -35.7657)
+
+[node name="Traesure_4" parent="Treasures_distri" instance=ExtResource("1_1rgfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.531, 52.1196, 92)
+
+[node name="Enemi_arampage_distri" type="Node" parent="."]
+
+[node name="Enemi4_Ghost_1" parent="Enemi_arampage_distri" instance=ExtResource("17_53k1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165, 56, 100)
+RGB = 1
+speed = 0.005
+margen_lerp = 0.01
+
+[node name="Enemi4_Ghost_2" parent="Enemi_arampage_distri" instance=ExtResource("17_53k1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165, 50, 100)
+RGB = 1
+speed = 0.005
+margen_lerp = 0.01
+
+[node name="Enemi4_Ghost_3" parent="Enemi_arampage_distri" instance=ExtResource("17_53k1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165, 50, 92)
+RGB = 1
+speed = 0.005
+margen_lerp = 0.01
+
+[node name="Enemi4_Ghost_4" parent="Enemi_arampage_distri" instance=ExtResource("17_53k1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165, 50, 84)
+RGB = 1
+speed = 0.005
+margen_lerp = 0.01
+
+[node name="Enemi4_Ghost_5" parent="Enemi_arampage_distri" instance=ExtResource("17_53k1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165, 56, 84)
+RGB = 1
+speed = 0.005
+margen_lerp = 0.01
+
+[node name="Enemi4_Ghost_6" parent="Enemi_arampage_distri" instance=ExtResource("17_53k1g")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 165, 60, 92)
+RGB = 1
+speed = 0.005
+margen_lerp = 0.01
+
+[node name="END_GROUND" parent="." instance=ExtResource("1_3d3ti")]
+transform = Transform3D(1000, 0, 0, 0, 2, 0, 0, 0, 1000, 28, -29.8163, 10)
+mesh = SubResource("SphereMesh_q56c2")
+
+[node name="END_GAME" parent="." instance=ExtResource("18_vvjwc")]
+transform = Transform3D(50, 0, 0, 0, 20, 0, 0, 0, 1, 0, 10, -36.147)

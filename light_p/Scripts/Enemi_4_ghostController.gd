@@ -26,7 +26,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	pass
+	if target != null:
+		move_to_player()
 	
 func _on_body_entered(body):
 	if !first_contact_player:
