@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4j0br1rcgx2i"]
+
+[ext_resource type="Script" path="res://Scripts/Start_menu.gd" id="1_r7ncd"]
+[ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="2_pebci"]
+[ext_resource type="Texture2D" uid="uid://bsmnu04uh16c5" path="res://Sprites/square.png" id="2_xmejl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ixyex"]
+font = ExtResource("2_pebci")
+font_size = 241
+
+[node name="Node" type="Node"]
+script = ExtResource("1_r7ncd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(608, 384)
+scale = Vector2(19.805, 19.805)
+texture = ExtResource("2_xmejl")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 360.0
+offset_top = 11.0
+offset_right = 784.0
+offset_bottom = 301.0
+text = "RGB"
+label_settings = SubResource("LabelSettings_ixyex")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer"]
+offset_left = 427.0
+offset_top = 314.0
+offset_right = 748.0
+offset_bottom = 442.0
+theme_override_fonts/font = ExtResource("2_pebci")
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="Credits" type="Button" parent="CanvasLayer"]
+offset_left = 401.0
+offset_top = 467.0
+offset_right = 784.0
+offset_bottom = 595.0
+theme_override_fonts/font = ExtResource("2_pebci")
+theme_override_font_sizes/font_size = 100
+text = "Credits"
+
+[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Credits" to="." method="_on_credits_pressed"]

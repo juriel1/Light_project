@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2af718bsasrv"]
+[gd_scene load_steps=6 format=3 uid="uid://b2af718bsasrv"]
 
 [ext_resource type="Script" path="res://Scripts/Switch_door.gd" id="1_1hf71"]
+[ext_resource type="Material" uid="uid://e3b6l51ptqcy" path="res://SHADERS/Interact.tres" id="2_220nc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vc2dv"]
 
@@ -15,6 +16,7 @@ script = ExtResource("1_1hf71")
 shape = SubResource("CylinderShape3D_vc2dv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PhysicCollision"]
+material_overlay = ExtResource("2_220nc")
 mesh = SubResource("CylinderMesh_di81t")
 
 [node name="AreaCollision" type="Area3D" parent="."]

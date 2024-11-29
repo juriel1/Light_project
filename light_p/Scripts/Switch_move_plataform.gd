@@ -12,6 +12,8 @@ var number_of_point:int = 0
 var area
 var contact:bool
 
+@export var label:Label
+
 
 func _ready() -> void:
 	len_points = points_move.size()
@@ -27,10 +29,12 @@ func _process(delta: float) -> void:
 func _on_body_entered(body):
 	if body.name == "Player_trigger":
 		contact = true
+		label.text = "Press E"
 		
 func _on_body_exited(body):
 	if body.name == "Player_trigger":
 		contact = false
+		label.text = ""
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action") and contact:

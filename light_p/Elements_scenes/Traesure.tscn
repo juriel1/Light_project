@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Traesure.gd" id="1_ovj7g"]
 [ext_resource type="Material" uid="uid://b2gchho751ifv" path="res://SHADERS/Treasure.tres" id="2_6r25b"]
+[ext_resource type="ArrayMesh" uid="uid://bsf8j4de2rb8s" path="res://Models/Scene/game_boy.obj" id="3_y1gxd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_shrl3"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_4b5jl"]
 
 [node name="Traesure" type="Area3D"]
 script = ExtResource("1_ovj7g")
@@ -14,5 +13,6 @@ script = ExtResource("1_ovj7g")
 shape = SubResource("BoxShape3D_shrl3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 material_overlay = ExtResource("2_6r25b")
-mesh = SubResource("SphereMesh_4b5jl")
+mesh = ExtResource("3_y1gxd")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxdtd05p838ja"]
+
+[ext_resource type="Script" path="res://Scripts/Credits_menu.gd" id="1_f8tsk"]
+[ext_resource type="Texture2D" uid="uid://bsmnu04uh16c5" path="res://Sprites/square.png" id="2_5t4ri"]
+[ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="3_dpwri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6wphl"]
+font = ExtResource("3_dpwri")
+font_size = 50
+shadow_size = 100
+shadow_color = Color(0, 0, 0, 0.117647)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_f8tsk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(608, 384)
+scale = Vector2(19.805, 19.805)
+texture = ExtResource("2_5t4ri")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 378.0
+offset_top = 16.0
+offset_right = 810.0
+offset_bottom = 510.0
+text = "Created by: 
+Uriel Alvarez 
+--
+Woolball Studios
+
+X(Twiter) 
+@JUriel_gd"
+label_settings = SubResource("LabelSettings_6wphl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer"]
+offset_left = 464.0
+offset_top = 510.0
+offset_right = 706.0
+offset_bottom = 638.0
+theme_override_fonts/font = ExtResource("3_dpwri")
+theme_override_font_sizes/font_size = 100
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_back_pressed"]

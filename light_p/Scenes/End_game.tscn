@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://btpqj8kxm2mwv"]
+
+[ext_resource type="Script" path="res://Scripts/End_game_menu.gd" id="1_jnhpe"]
+[ext_resource type="Texture2D" uid="uid://bsmnu04uh16c5" path="res://Sprites/square.png" id="2_r83xq"]
+[ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="3_ln8od"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_80su8"]
+font = ExtResource("3_ln8od")
+font_size = 140
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwvr8"]
+font = ExtResource("3_ln8od")
+font_size = 101
+
+[node name="End_game" type="Node" node_paths=PackedStringArray("time_label")]
+script = ExtResource("1_jnhpe")
+time_label = NodePath("CanvasLayer/Label2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(608, 384)
+scale = Vector2(19.805, 19.805)
+texture = ExtResource("2_r83xq")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = -415.0
+offset_top = -64.0
+offset_right = 1556.0
+offset_bottom = 572.0
+text = "Thanks to play
+\\*-*/"
+label_settings = SubResource("LabelSettings_80su8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 251.0
+offset_top = 478.0
+offset_right = 906.0
+offset_bottom = 600.0
+text = "Time: 00:00:00"
+label_settings = SubResource("LabelSettings_kwvr8")

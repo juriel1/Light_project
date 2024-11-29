@@ -3,5 +3,6 @@
 [ext_resource type="ArrayMesh" uid="uid://l2gccnaomwsp" path="res://Models/Scene/chandelure.obj" id="1_cmgrb"]
 
 [node name="chandelure" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
 mesh = ExtResource("1_cmgrb")
 skeleton = NodePath("")

@@ -2,7 +2,9 @@ extends CanvasLayer
 
 @export var player:CharacterBody3D
 @export var label:Label
+@export var label_pause:Label
 
+@export var control_splasher:Texture
 @export var dead_panel:Texture
 @export var check_panel:Texture
 @export var treasure_panel:Texture
@@ -18,6 +20,7 @@ extends CanvasLayer
 @export var max_scale:Vector2
 @export var min_scale:Vector2
 @export var speed_scale:float
+@export var splasher_scale:Vector2
 
 var progress_lerp: float = 0.0
 
@@ -26,6 +29,9 @@ var type_funcion:int
 func _ready() -> void:
 	origin_center_pos = Vector2(575,325)
 	player.connect("panel_canvas", Callable(self, "_on_my_signal_received"))
+	on_pause()
+	await get_tree().create_timer(3).timeout
+	off_pause()
 	
 func _process(delta: float) -> void:
 	if type_funcion==1:
@@ -88,7 +94,7 @@ func on_dead(delta):
 		type_funcion = 0
 		center_sprite.texture = null
 		label.text = ""
-		
+
 func on_treasure(delta):
 	print(progress_lerp)
 	center_sprite.position = origin_center_pos
@@ -106,8 +112,19 @@ func on_treasure(delta):
 func on_rampage(delta):
 	if progress_lerp < 1.0:
 		progress_lerp += speed_scale * delta
+		label.text = "Boooo"
 	else:
 		type_funcion = 0
 		center_sprite.texture = null
 		label.text = ""
-	
+
+func on_pause():
+	center_sprite.texture = control_splasher
+	center_sprite.scale = splasher_scale
+	label.text = ""
+	label_pause.visible = true
+func off_pause():
+	center_sprite.texture = null
+	center_sprite.scale = origin_scale
+	label.text = ""
+	label_pause.visible = false

@@ -12,6 +12,8 @@ var on:bool
 
 @export var type_rot_or_pos:bool
 
+@export var label:Label
+
 var area
 var contact:bool
 
@@ -25,10 +27,12 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if body.name == "Player_trigger":
 		contact = true
+		label.text = "Press E"
 		
 func _on_body_exited(body):
 	if body.name == "Player_trigger":
 		contact = false
+		label.text = ""
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action") and contact:

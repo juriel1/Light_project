@@ -12,6 +12,7 @@ size = Vector3(1.08301, 1.07275, 1.12231)
 size = Vector3(2.34808, 2.39087, 2.59375)
 
 [node name="Enemi2_Ghost" type="CharacterBody3D"]
+process_mode = 1
 script = ExtResource("1_c30w7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8pmscsypgwa3"]
+
+[ext_resource type="Script" path="res://Scripts/Intro_Menu.gd" id="1_yj4hs"]
+[ext_resource type="Texture2D" uid="uid://bsmnu04uh16c5" path="res://Sprites/square.png" id="2_1wqp3"]
+[ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="3_cqm42"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uloy4"]
+font = ExtResource("3_cqm42")
+font_size = 25
+
+[node name="Intro" type="Node"]
+script = ExtResource("1_yj4hs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(608, 384)
+scale = Vector2(19.805, 19.805)
+texture = ExtResource("2_1wqp3")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = -422.0
+offset_top = -46.0
+offset_right = 1549.0
+offset_bottom = 591.0
+text = "Hey buddy! I'll give you the keys to my mansion for the agreed job.
+
+This mansion has been haunted for a long time by these strange ghosts
+you told me about and they've bewitched everything, there are even invisible, 
+secret things!
+…
+Even though you say they're just \"of a different color\", you mentioned that
+ if you collected all these... What did you call them? Treasures? The spell
+ would end. As a child I really liked video game consoles, I don't know if that
+ has anything to do with it.
+
+Hey, lastly, remember, you mentioned something about a fuss with
+the last treasure, so when you're done, go back quickly to the exit, 
+the beginning.
+
+Good luck!"
+label_settings = SubResource("LabelSettings_uloy4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 477.0
+offset_top = 540.0
+offset_right = 666.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("3_cqm42")
+theme_override_font_sizes/font_size = 31
+text = "Next"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

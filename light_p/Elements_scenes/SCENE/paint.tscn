@@ -1,17 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://blr16nvunuur"]
 
 [ext_resource type="ArrayMesh" uid="uid://nrv8h64mjhwj" path="res://Models/Scene/paint.obj" id="1_dqiou"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6gb62"]
-size = Vector3(5, 6, 0.998688)
+[ext_resource type="Material" uid="uid://e3b6l51ptqcy" path="res://SHADERS/Interact.tres" id="1_rwn7m"]
 
 [node name="paint" type="StaticBody3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_overlay = ExtResource("1_rwn7m")
 mesh = ExtResource("1_dqiou")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00372313, 0.305801, 0)
-shape = SubResource("BoxShape3D_6gb62")

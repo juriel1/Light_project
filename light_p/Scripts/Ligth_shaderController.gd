@@ -14,6 +14,8 @@ signal change_color
 func _ready() -> void:
 	mesh_ligth = get_node("Mesh_ligth")
 	shader = mesh_ligth.material_override
+	light_state = true
+	color_val = 2
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("red_color"):

@@ -61,6 +61,9 @@ func save_pos_rampage():
 			enemy_rampage_pos[i] = enemy_rampage[i].global_transform.origin
 			enemy_rampage[i].global_transform.origin = Vector3(150,150,150)
 			
-func end_game():
+func end_game() -> bool:
 	if treasures_count >= max_treaure_in_scene:
 		print("END GAME")
+		return true
+	else:
+		return false
