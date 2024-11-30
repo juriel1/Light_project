@@ -32,8 +32,13 @@ func route() -> void:
 		
 func move(point) -> void:
 	global_transform.origin = global_transform.origin.lerp(point, speed)
-	look_at(point, Vector3.UP)
-	rotation.y += deg_to_rad(180)
+	if !position.is_equal_approx(point):
+		var direction = point - position
+		if direction.cross(Vector3.UP).is_zero_approx():
+			pass
+		else:
+			look_at(point, Vector3.UP)
+			rotation.y += deg_to_rad(180)
 	if global_transform.origin.distance_to(point) < margen_lerp:
 		number_of_point += 1
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://btpqj8kxm2mwv"]
+[gd_scene load_steps=7 format=3 uid="uid://btpqj8kxm2mwv"]
 
 [ext_resource type="Script" path="res://Scripts/End_game_menu.gd" id="1_jnhpe"]
 [ext_resource type="Texture2D" uid="uid://bsmnu04uh16c5" path="res://Sprites/square.png" id="2_r83xq"]
 [ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="3_ln8od"]
+[ext_resource type="PackedScene" uid="uid://d1ngoevv1x52d" path="res://Scenes/main_track_menu.tscn" id="4_bt6py"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_80su8"]
 font = ExtResource("3_ln8od")
@@ -28,8 +29,7 @@ offset_left = -415.0
 offset_top = -64.0
 offset_right = 1556.0
 offset_bottom = 572.0
-text = "Thanks to play
-\\*-*/"
+text = "Thanks to play"
 label_settings = SubResource("LabelSettings_80su8")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -41,3 +41,6 @@ offset_right = 906.0
 offset_bottom = 600.0
 text = "Time: 00:00:00"
 label_settings = SubResource("LabelSettings_kwvr8")
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("4_bt6py")]
+volume_db = 10.0

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl4b83odhsbn"]
+[gd_scene load_steps=7 format=3 uid="uid://dl4b83odhsbn"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_e0jra"]
 [ext_resource type="PackedScene" uid="uid://dve02uxg7ocfv" path="res://Elements_scenes/Ligth.tscn" id="3_b4f83"]
+[ext_resource type="AudioStream" uid="uid://h6cw1hh3g5ou" path="res://Sounds/to_treasure.wav" id="3_jtk0y"]
+[ext_resource type="AudioStream" uid="uid://muyqa7fnmqq2" path="res://Sounds/to_grounded.wav" id="4_ihydg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_asdks"]
 
@@ -27,7 +29,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.22, 
 transform = Transform3D(-1, -2.99003e-08, 8.21505e-08, 0, 0.939693, 0.34202, -8.74228e-08, 0.34202, -0.939693, 0, 2.472, -2.619)
 
 [node name="Fisrt_person_ligth_pivot" type="Node3D" parent="."]
-transform = Transform3D(11.5, 0, 0, 0, 11.5, 0, 0, 0, 11.5, 0.582, -0.007, 0.9)
+transform = Transform3D(11.5, 0, 0, 0, 11.5, 0, 0, 0, 11.5, 0.582, 0.065, 0.9)
 
 [node name="Third_person_ligth_pivot" type="Node3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.582, 1.43722, 10.353)
@@ -37,3 +39,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.582, 1.43722, 10.353)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_trigger"]
 transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_dtcwt")
+
+[node name="AudioTreasure" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jtk0y")
+
+[node name="AudioGrounded" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_ihydg")

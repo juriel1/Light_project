@@ -10,12 +10,16 @@ var shader:ShaderMaterial
 # 3 - B
 
 signal change_color
+signal innit
+var innit_state:bool
 
 func _ready() -> void:
 	mesh_ligth = get_node("Mesh_ligth")
 	shader = mesh_ligth.material_override
 	light_state = true
 	color_val = 2
+	shader_controller()
+	emit_signal("change_color",2)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("red_color"):
@@ -27,13 +31,18 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("blue_color"):
 		color_val = 3
 		emit_signal("change_color",3)
+	if !innit_state:
+		if event.is_action_pressed("move_forward") or event.is_action_pressed("move_right") or event.is_action_pressed("move_backward") or event.is_action_pressed("move_left"):
+			color_val = color_val
+			innit_state = true
+			emit_signal("innit",color_val)
 		
-	if event.is_action_pressed("on_ligth") and !light_state:
-		light_state = true
-		emit_signal("change_color",color_val)
-	if event.is_action_pressed("off_ligth") and light_state:
-		light_state = false
-		emit_signal("change_color",4)
+	#if event.is_action_pressed("on_ligth") and !light_state:
+	#	light_state = true
+	#	emit_signal("change_color",color_val)
+	#if event.is_action_pressed("off_ligth") and light_state:
+	#	light_state = false
+	#	emit_signal("change_color",4)
 	
 	shader_controller()
 

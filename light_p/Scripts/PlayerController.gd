@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+@onready var sound_treasure = $AudioTreasure
+@onready var sound_grounded = $AudioGrounded
+
 @export var speed:float = 5.0
 @export var jump_force:float = 4.5
 
@@ -10,6 +13,8 @@ var treasures_count:int
 @export var enemy_rampage : Array[CharacterBody3D]
 @export var enemy_rampage_pos : Array[Vector3]
 var invoke_treasure:bool
+
+var rigth_jump:bool
 
 signal panel_canvas
 
@@ -25,6 +30,13 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_force
+	
+	if !is_on_floor():
+		rigth_jump = true
+	
+	if rigth_jump and is_on_floor():
+		sound_grounded.play()
+		rigth_jump = false
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := ((transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized())*(-1)
@@ -37,17 +49,19 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-func get_new_check_point(point:Area3D):
+func get_new_check_point(point:Area3D) -> bool:
 	if check_point != point:
 		check_point = point
-		print("new check point ", check_point.name)
 		emit_signal("panel_canvas","check")
+		return true
+	else:
+		return false
 func dead_to_check_point():
 	global_transform.origin = check_point.global_transform.origin
 	emit_signal("panel_canvas","dead")
 func up_treasure():
 	treasures_count +=1
-	print("up treaure")
+	sound_treasure.play()
 	emit_signal("panel_canvas","treasure")
 
 func check_treasure():
@@ -63,7 +77,6 @@ func save_pos_rampage():
 			
 func end_game() -> bool:
 	if treasures_count >= max_treaure_in_scene:
-		print("END GAME")
 		return true
 	else:
 		return false

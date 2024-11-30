@@ -7,6 +7,7 @@ func _ready() -> void:
 	area.connect("body_entered", Callable(self, "_on_body_entered"))
 	area.connect("body_exited", Callable(self, "_on_body_exited"))
 	area.connect("change_color", Callable(self, "_on_my_signal_received"))
+	area.connect("innit", Callable(self, "_on_my_signal_received"))
 
 func _on_body_entered(body):
 	if body.has_node("collision_RGB"):

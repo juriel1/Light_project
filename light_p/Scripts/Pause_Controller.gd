@@ -10,9 +10,9 @@ func _input(event: InputEvent) -> void:
 func toggle_pause() -> void:
 	is_paused = !is_paused
 	if is_paused:
-		print("pause")
 		canvas.on_pause()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
-		print("des pause")
 		canvas.off_pause()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = is_paused

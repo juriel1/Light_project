@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://t7owwtg136tw"]
+
+[ext_resource type="AudioStream" uid="uid://cvlq07hecpomh" path="res://Sounds/main_track.wav" id="1_2wh83"]
+[ext_resource type="Script" path="res://Scripts/main_track.gd" id="2_mfwln"]
+[ext_resource type="AudioStream" uid="uid://ba7mucq54dt23" path="res://Sounds/inter_main_track.wav" id="3_v0buq"]
+
+[node name="Main_Track" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_2wh83")
+volume_db = -30.0
+max_db = 0.5
+script = ExtResource("2_mfwln")
+main_track = ExtResource("1_2wh83")
+inter_track = ExtResource("3_v0buq")
+
+[node name="Timer_main" type="Timer" parent="."]
+wait_time = 100.0
+autostart = true
+
+[node name="Timer_inter" type="Timer" parent="."]
+wait_time = 170.0
+autostart = true
+
+[connection signal="timeout" from="Timer_main" to="." method="_on_timer_main_timeout"]
+[connection signal="timeout" from="Timer_inter" to="." method="_on_timer_inter_timeout"]

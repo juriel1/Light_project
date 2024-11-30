@@ -1,5 +1,6 @@
 extends Area3D
 
+
 var end_game_scene = "res://Scenes/End_game.tscn"
 @export var label:Label
 var time:float
@@ -10,7 +11,6 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	time += delta
-	
 	
 func change_level(new_scene_path: String) -> void:
 	get_tree().change_scene_to_file(new_scene_path)

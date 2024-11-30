@@ -5,6 +5,7 @@ extends Area3D
 @export var collision_shape:CollisionShape3D
 var collision:CollisionShape3D
 
+
 func _ready() -> void:
 	self.connect("body_entered", Callable(self, "_on_body_entered"))
 	collision = $CollisionShape3D

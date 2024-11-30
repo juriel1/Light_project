@@ -1,5 +1,7 @@
 extends Area3D
 
+@onready var sound_player = $AudioStreamPlayer3D
+
 @export var door:CharacterBody3D
 
 @export var pos_rot_1:Node3D
@@ -37,6 +39,7 @@ func _on_body_exited(body):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action") and contact:
 		open = !open
+		sound_player.play()
 		on = true
 
 func _process(delta: float) -> void:
@@ -57,7 +60,8 @@ func move(point):
 	if door.global_transform.origin.distance_to(point.global_transform.origin) < margen_lerp:
 		on = false
 func rotation(point):
-	var target_rotation = Quaternion(point.global_transform.basis)
-	door.global_transform.basis = Basis(Quaternion(door.global_transform.basis).slerp(target_rotation, speed))
-	if door.global_transform.origin.distance_to(point.global_transform.origin) < margen_lerp:
-		on = false
+	pass
+	#var target_rotation = Quaternion(point.global_transform.basis)
+	#door.global_transform.basis = Basis(Quaternion(door.global_transform.basis).slerp(target_rotation, speed))
+	#if door.global_transform.origin.distance_to(point.global_transform.origin) < margen_lerp:
+	#	on = false

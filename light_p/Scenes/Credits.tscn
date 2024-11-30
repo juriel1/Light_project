@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxdtd05p838ja"]
+[gd_scene load_steps=6 format=3 uid="uid://bxdtd05p838ja"]
 
 [ext_resource type="Script" path="res://Scripts/Credits_menu.gd" id="1_f8tsk"]
 [ext_resource type="Texture2D" uid="uid://bsmnu04uh16c5" path="res://Sprites/square.png" id="2_5t4ri"]
 [ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="3_dpwri"]
+[ext_resource type="PackedScene" uid="uid://d1ngoevv1x52d" path="res://Scenes/main_track_menu.tscn" id="4_xhcly"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6wphl"]
 font = ExtResource("3_dpwri")
@@ -44,5 +45,7 @@ offset_bottom = 638.0
 theme_override_fonts/font = ExtResource("3_dpwri")
 theme_override_font_sizes/font_size = 100
 text = "Back"
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("4_xhcly")]
 
 [connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_back_pressed"]

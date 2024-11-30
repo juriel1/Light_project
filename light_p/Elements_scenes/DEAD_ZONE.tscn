@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3gtjrc8683bt"]
+[gd_scene load_steps=5 format=3 uid="uid://b3gtjrc8683bt"]
 
 [ext_resource type="Script" path="res://Scripts/dead_zone.gd" id="1_0gtec"]
+[ext_resource type="PackedScene" uid="uid://buk3xtbe1xw3b" path="res://Scenes/Audio_dead.tscn" id="2_nso5i"]
+[ext_resource type="AudioStream" uid="uid://0ynaliirf08r" path="res://Sounds/to_dead.wav" id="2_opnxd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_41daf"]
 
@@ -9,3 +11,8 @@ script = ExtResource("1_0gtec")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_41daf")
+
+[node name="AudioStreamPlayer3D" parent="." instance=ExtResource("2_nso5i")]
+stream = ExtResource("2_opnxd")
+
+[connection signal="body_entered" from="." to="AudioStreamPlayer3D" method="_on_dead_zone_body_entered"]

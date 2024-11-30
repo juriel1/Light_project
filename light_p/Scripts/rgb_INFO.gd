@@ -14,7 +14,6 @@ var origin_scale_collision:Vector3
 var origin_scale_dead_zone:Vector3
 var origin_scale_dead_zone_mesh:Vector3
 
-const ZERO_SCALE = Vector3(0,0,0)
 const FLT_MIN_SCALE = Vector3(1.0e-10,1.0e-10,1.0e-10)
 
 @export var invert_switch:bool
@@ -44,10 +43,10 @@ func IOff():
 			dead_zone_mesh.scale = origin_scale_dead_zone_mesh
 		emit_signal("Iilumite",false)
 		return
-	mesh.scale = ZERO_SCALE
+	mesh.scale = FLT_MIN_SCALE
 	scale = FLT_MIN_SCALE
 	if is_enemi:
-		dead_zone.scale = ZERO_SCALE
+		dead_zone.scale = FLT_MIN_SCALE
 		dead_zone_mesh.scale = FLT_MIN_SCALE
 	if destroyable:
 		get_parent().queue_free()
@@ -56,10 +55,10 @@ func IOff():
 
 func IOn():
 	if invert_switch:
-		mesh.scale = ZERO_SCALE
+		mesh.scale = FLT_MIN_SCALE
 		scale = FLT_MIN_SCALE
 		if is_enemi:
-			dead_zone.scale = ZERO_SCALE
+			dead_zone.scale = FLT_MIN_SCALE
 			dead_zone_mesh.scale = FLT_MIN_SCALE
 		if destroyable:
 			get_parent().queue_free()

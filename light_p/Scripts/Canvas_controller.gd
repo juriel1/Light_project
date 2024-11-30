@@ -68,8 +68,6 @@ func _on_my_signal_received(message):
 		progress_lerp = 0.0
 
 func on_check(delta):
-	print(progress_lerp)
-	center_sprite.position = origin_center_pos
 	center_sprite.scale = origin_scale
 	center_sprite.position = down_pos
 	center_sprite.texture = check_panel
@@ -82,7 +80,6 @@ func on_check(delta):
 		label.text = ""
 
 func on_dead(delta):
-	print(progress_lerp)
 	center_sprite.position = origin_center_pos
 	center_sprite.scale = origin_scale
 	center_sprite.position = up_pos
@@ -96,9 +93,7 @@ func on_dead(delta):
 		label.text = ""
 
 func on_treasure(delta):
-	print(progress_lerp)
 	center_sprite.position = origin_center_pos
-	center_sprite.scale = origin_scale
 	center_sprite.scale = min_scale
 	center_sprite.texture = treasure_panel
 	if progress_lerp < 1.0:
@@ -112,7 +107,7 @@ func on_treasure(delta):
 func on_rampage(delta):
 	if progress_lerp < 1.0:
 		progress_lerp += speed_scale * delta
-		label.text = "Boooo"
+		label.text = "GO"
 	else:
 		type_funcion = 0
 		center_sprite.texture = null

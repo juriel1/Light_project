@@ -11,6 +11,8 @@
 [node name="Ligth" type="Area3D"]
 transform = Transform3D(9.55343e-16, -2.18557e-08, -0.5, -0.494094, 0.0766222, -3.34927e-09, 0.0766222, 0.494094, -2.15975e-08, 0, 1.63602, 0)
 script = ExtResource("1_w4djv")
+light_state = true
+color_val = 1
 
 [node name="Mesh_ligth" type="MeshInstance3D" parent="."]
 transform = Transform3D(3, 5.96046e-08, -1.77636e-15, -5.96046e-08, 3, -2.84217e-14, 1.77636e-15, 2.84217e-14, 3, 0, 7.132, 0)

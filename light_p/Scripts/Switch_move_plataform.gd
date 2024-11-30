@@ -1,5 +1,7 @@
 extends Area3D
 
+@onready var sound_player = $AudioStreamPlayer3D
+
 @export var points_move:Array[Node3D]
 @export var platform:CharacterBody3D
 @export var speed:float
@@ -38,7 +40,7 @@ func _on_body_exited(body):
 		
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action") and contact:
-		print("CONTACT PLATFORM")
+		sound_player.play()
 		on = !on
 
 func route() -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8pmscsypgwa3"]
+[gd_scene load_steps=6 format=3 uid="uid://b8pmscsypgwa3"]
 
 [ext_resource type="Script" path="res://Scripts/Intro_Menu.gd" id="1_yj4hs"]
 [ext_resource type="Texture2D" uid="uid://bsmnu04uh16c5" path="res://Sprites/square.png" id="2_1wqp3"]
 [ext_resource type="FontFile" uid="uid://eqjycmfarnb8" path="res://Font/PixelifySans-VariableFont_wght.ttf" id="3_cqm42"]
+[ext_resource type="PackedScene" uid="uid://d1ngoevv1x52d" path="res://Scenes/main_track_menu.tscn" id="4_c53r2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uloy4"]
 font = ExtResource("3_cqm42")
@@ -51,5 +52,7 @@ offset_bottom = 640.0
 theme_override_fonts/font = ExtResource("3_cqm42")
 theme_override_font_sizes/font_size = 31
 text = "Next"
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource("4_c53r2")]
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

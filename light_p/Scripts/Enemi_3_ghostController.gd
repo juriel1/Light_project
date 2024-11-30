@@ -33,22 +33,27 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if !contact_player:
 		route()
+		#print("ROUTE")
 	else:
 		move_to_player()
+		#print("PLAYER")
 	
 func _on_body_entered(body):
 	if !first_contact_player:
 		if body.name == "Player":
+			print(body.name)
 			target = body
 			first_contact_player = true
 			contact_player = true
 	else:
 		if body.name == "Player":
+			print(body.name)
 			contact_player = true
 			
 
 func _on_body_exited(body):
-	contact_player = false
+	if body.name == "Player":
+		contact_player = false
 	
 func route() -> void:
 	if len_points == 0:
