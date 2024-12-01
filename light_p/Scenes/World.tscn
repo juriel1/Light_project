@@ -63,9 +63,9 @@ environment = SubResource("Environment_fwq1j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 132.147)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
+light_energy = 0.5
+light_indirect_energy = 13.0
+light_volumetric_fog_energy = 2.0
 light_angular_distance = 90.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "label", "label_pause", "center_sprite")]
