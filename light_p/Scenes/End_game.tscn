@@ -13,9 +13,10 @@ font_size = 140
 font = ExtResource("3_ln8od")
 font_size = 101
 
-[node name="End_game" type="Node" node_paths=PackedStringArray("time_label")]
+[node name="End_game" type="Node" node_paths=PackedStringArray("time_label", "background")]
 script = ExtResource("1_jnhpe")
 time_label = NodePath("CanvasLayer/Label2")
+background = NodePath("CanvasLayer/background")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -25,22 +26,34 @@ scale = Vector2(19.805, 19.805)
 texture = ExtResource("2_r83xq")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = -415.0
-offset_top = -64.0
-offset_right = 1556.0
-offset_bottom = 572.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -985.5
+offset_top = -318.0
+offset_right = 985.5
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Thanks to play"
 label_settings = SubResource("LabelSettings_80su8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 251.0
-offset_top = 478.0
-offset_right = 906.0
-offset_bottom = 600.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -327.5
+offset_top = -122.0
+offset_right = 327.5
+grow_horizontal = 2
+grow_vertical = 0
 text = "Time: 00:00:00"
 label_settings = SubResource("LabelSettings_kwvr8")
 
 [node name="AudioStreamPlayer2D" parent="." instance=ExtResource("4_bt6py")]
-volume_db = 10.0

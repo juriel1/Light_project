@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+var origin_scale_viewport = 1078
+var factor:float
+
 @export var player:CharacterBody3D
 @export var label:Label
 @export var label_pause:Label
@@ -27,7 +30,19 @@ var progress_lerp: float = 0.0
 var type_funcion:int
 
 func _ready() -> void:
-	origin_center_pos = Vector2(575,325)
+	var window_size = DisplayServer.window_get_size()
+	var viewport = get_viewport()
+	factor = float(window_size.x)/origin_scale_viewport
+	viewport.size = window_size
+	
+	origin_center_pos = Vector2(575*factor,325*factor)
+	down_pos = Vector2(down_pos.x*factor,down_pos.y*factor)
+	up_pos = Vector2(up_pos.x*factor,up_pos.y*factor)
+	origin_scale = Vector2(origin_scale.x*factor,origin_scale.y*factor)
+	max_scale = Vector2(max_scale.x*factor,max_scale.y*factor)
+	min_scale = Vector2(min_scale.x*factor,min_scale.y*factor)
+	splasher_scale = Vector2(splasher_scale.x*factor,splasher_scale.y*factor)
+	
 	player.connect("panel_canvas", Callable(self, "_on_my_signal_received"))
 	on_pause()
 	await get_tree().create_timer(3).timeout
@@ -114,6 +129,7 @@ func on_rampage(delta):
 		label.text = ""
 
 func on_pause():
+	center_sprite.position = origin_center_pos
 	center_sprite.texture = control_splasher
 	center_sprite.scale = splasher_scale
 	label.text = ""

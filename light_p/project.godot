@@ -10,13 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Light_p"
+config/name="RGB"
+config/description="Video Game"
+config/version="1.1.0.0"
+run/main_scene="res://Scenes/Start_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://Sprites/icon.svg"
+boot_splash/image="res://Sprites/panel_2.png"
+config/icon="res://Sprites/panel_2.png"
 
 [autoload]
 
 Finish="*res://Scripts/Finish.gd"
+
+[display]
+
+window/size/mode=3
 
 [filesystem]
 
